@@ -1,0 +1,12 @@
+<!-- App interaction decision: Keep press feedback and reduced-motion/transparency handling in shared design tokens and controls, so every InfoVault screen responds consistently without duplicating motion rules. -->
+<!-- Mobile navigation decision: Use the existing Vaul drawer for More sections so dismissal tracks touch position and release velocity rather than a fixed sheet animation. -->
+<!-- Selection motion decision: Keep the selection bar mounted but inert while hidden, allowing symmetric CSS entry/exit without delaying controls or adding a motion dependency. -->
+
+<!-- Copy feedback decision: The copy tray replaces the "Copied" toast so the copied value can fly from its button into one fixed landing spot; sensitive values are never previewed. -->
+<!-- Card morph decision: Use the browser View Transitions API (no library) to morph record cards into their edit dialog, skipped when unsupported or when reduced motion is requested. -->
+<!-- Navigation decision: Cache the validated user briefly and clear it on auth changes; prefetch section links on intent and avoid remount/fade on section changes so content switches promptly without stale flashes. -->
+<!-- Loading decision: Lazy-load section views while retaining intent preloading, and show shared shape-matched skeletons for auth, vault fetch, and route pending states; this keeps first load lighter and avoids showing stale sections while waiting. -->
+<!-- Brand asset decision: Keep the supplied horizontal logo and its dark-mode counterpart in one shared component, with the icon used only where a compact format is needed; this prevents mismatched branding across screens. -->
+<!-- Landing hero decision: Use CSS-rendered product UI and data-flow graphics instead of stock imagery, so the first viewport demonstrates InfoVault without exposing real personal information. -->
+
+<!-- Landing motion decision: Landing scroll and hover choreography (GSAP + ScrollTrigger) lives in src/components/landing/motion.tsx, gated by prefers-reduced-motion via gsap.matchMedia, so the iOS visual language stays untouched and motion can be tuned in one place. -->
